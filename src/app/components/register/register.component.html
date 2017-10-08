@@ -1,3 +1,47 @@
-<p>
-  register works!
-</p>
+<div class="container">
+  <h1 class="text-center">New User Registration</h1>
+  <form [formGroup]="rForm" (ngSubmit)="onRegister(rForm.value)">
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">First Name</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" formControlName="firstName" placeholder="First Name">
+        <div class="alert alert-danger" role="alert" *ngIf="!rForm.controls['firstName'].valid && (name.dirty || name.touched)">Please enter a valid text</div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Last Name</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" formControlName="lastName" placeholder="Last Name">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">User Name</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" formControlName="userName" placeholder="User Name">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Email</label>
+      <div class="col-sm-10">
+        <input type="email" class="form-control" formControlName="emailId" placeholder="Email">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label  class="col-sm-2 col-form-label">Password</label>
+      <div class="col-sm-10">
+        <input type="password" class="form-control" formControlName="password" placeholder="Password">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label  class="col-sm-2 col-form-label">Confirm Password</label>
+      <div class="col-sm-10">
+        <input type="password" class="form-control" formControlName="confirmPassword"  placeholder="Re-Type Password">
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-12 text-center">
+        <button type="submit" class="btn btn-primary" [disabled]="!rForm.valid">Register</button>
+      </div>
+    </div>
+  </form>
+</div>
